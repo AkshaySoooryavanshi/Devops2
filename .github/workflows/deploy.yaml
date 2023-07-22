@@ -26,14 +26,13 @@ jobs:
               id: init
               run: terraform init
               working-directory: ./terraform
-            - name: terraform plan
+            - name: terraform Plan
               id: plan
               run: |-
                terraform plan \
                -var="region=us-west2" \
                -var="public_key=$PUBLIC_SSH_KEY" \
                -var="private_key=$PRIVATE_SSH_KEY" \
-               -var="key_name=deployer_key" \
                -out= PLAN
             - name: Terraform Apply
               id: apply
